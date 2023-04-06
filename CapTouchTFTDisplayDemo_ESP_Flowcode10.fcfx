@@ -315,7 +315,7 @@
 					<value target='cal_spi::CLKPins' data='017' />
 					<value target='cal_spi::SS' data='$PORTA.22' />
 					<value target='PR_SCALE' data='004' />
-					<value target='PR_SCALE2' data='320' />
+					<value target='PR_SCALE2' data='200' />
 					<value target='max_concurrent_files' data='1' />
 					<value target='EOFtype' data='001' />
 					<value target='IsSim' data='0' />
@@ -427,10 +427,10 @@
 	<keymap />
 	<panel2d shadows='0' lighting='2' brightness='0' >
 		<background rgb='7292207' img='' style='0' />
-		<camera xe='0' ye='0' ze='884.469' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
-		<viewport dx='591' dy='545' zoom='80.8519' fix_topleft='0' />
+		<camera xe='0' ye='0' ze='854.538' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<viewport dx='1154' dy='667' zoom='163.403' fix_topleft='0' />
 		<page x='1000' y='1000' show='0' rgb='7360576' />
-		<winpos ID='7005' RectRecentFloat='1270,427,1920,877' RectRecentDocked='-409,489,182,1034' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+		<winpos ID='7005' RectRecentFloat='1270,427,1920,877' RectRecentDocked='-409,489,182,1156' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 	</panel2d>
 	<panel3d shadows='0' lighting='2' brightness='0' perspective='1' >
 		<background rgb='8409120' img='' style='0' />
@@ -443,7 +443,7 @@
 		<camerakey4 xe='-300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='0.5' zquat='0.5' wquat='0.5' />
 		<camerakey5 xe='300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='-0.5' zquat='-0.5' wquat='0.5' />
 		<camerakey6 xe='-173.205' ye='-173.205' ze='173.205' xt='0' yt='0' zt='0' xquat='-0.424708' yquat='0.17592' zquat='0.339851' wquat='0.820473' />
-		<winpos ID='7004' RectRecentFloat='0,425,654,1002' RectRecentDocked='-1679,487,-1033,1033' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+		<winpos ID='7004' RectRecentFloat='0,425,654,1002' RectRecentDocked='-1679,487,-1088,1033' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 	</panel3d>
 	<panels2d count='1' >
 		<panel2d_0 id='0' name='2D Panel' >
@@ -452,7 +452,7 @@
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='830' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 	</layout>
 </document>
