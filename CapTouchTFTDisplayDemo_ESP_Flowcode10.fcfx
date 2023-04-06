@@ -1,0 +1,459 @@
+<root>
+<document scada='0' schema='103' license='10,BenR,C9TN1M' title='' description='' fcversion='655362' target='ESP.ESP32.Lolin32_Lite' >
+	<config data='' clkspd='240000000' simspd='0' usewdt='0' constif='0' commport='9' Use3V3='0' />
+	<plugins >
+		<dll_models enabled='1' />
+	</plugins>
+	<supplement use='1' head='#define gpio_pad_select_gpio esp_rom_gpio_pad_select_gpio
+
+' body='' />
+	<debug />
+	<traces />
+	<ghost >
+		<FK2 >
+			<data name='FK2D0' port='4294967295' pin='4294967295' />
+			<data name='FK2D1' port='4294967295' pin='4294967295' />
+			<data name='FK2D2' port='4294967295' pin='4294967295' />
+			<data name='FK2D3' port='4294967295' pin='4294967295' />
+			<data name='FK2D4' port='4294967295' pin='4294967295' />
+			<data name='FK2D5' port='4294967295' pin='4294967295' />
+			<data name='FK2D6' port='4294967295' pin='4294967295' />
+			<data name='FK2D7' port='4294967295' pin='4294967295' />
+			<data name='FK2D8' port='4294967295' pin='4294967295' />
+			<data name='FK2D9' port='4294967295' pin='4294967295' />
+			<data name='FK2D10' port='4294967295' pin='4294967295' />
+			<data name='FK2D11' port='4294967295' pin='4294967295' />
+			<data name='FK2D12' port='4294967295' pin='4294967295' />
+			<data name='FK2D13' port='4294967295' pin='4294967295' />
+			<data name='FK2D14' port='4294967295' pin='4294967295' />
+			<data name='FK2D15' port='4294967295' pin='4294967295' />
+			<data name='FK2A0' port='4294967295' pin='4294967295' />
+			<data name='FK2A1' port='4294967295' pin='4294967295' />
+			<data name='FK2A2' port='4294967295' pin='4294967295' />
+			<data name='FK2A3' port='4294967295' pin='4294967295' />
+			<data name='FK2A4' port='4294967295' pin='4294967295' />
+			<data name='FK2A5' port='4294967295' pin='4294967295' />
+		</FK2>
+		<ICD >
+			<data name='AnalogPrescaleValue' value='19' />
+			<data name='DigitalSampleRate' value='100000' />
+			<data name='BreakpointCount' value='8' />
+			<data name='CallStackDepthCount' value='8' />
+			<data name='ClockPort' value='1' />
+			<data name='ClockPin' value='6' />
+			<data name='DataPort' value='1' />
+			<data name='DataPin' value='7' />
+			<data name='UseDefaultPins' value='1' />
+			<data name='WrapEnabled' value='1' />
+			<data name='CommsDelayOverridden' value='0' />
+			<data name='CommsDelay' value='1' />
+			<data name='CalculatedCommsDelay' value='1' />
+			<data name='AnalogEB2PrescaleValue' value='2' />
+			<data name='DigitalEB2SampleRate' value='100000' />
+		</ICD>
+		<pins >
+			<digital A='0' B='0' C='0' D='0' E='0' F='0' G='0' H='0' I='0' J='0' K='0' L='0' M='0' N='0' O='0' P='0' Q='0' R='0' S='0' T='0' U='0' V='0' W='0' X='0' Y='0' Z='0' />
+			<analog A='0' B='0' C='0' D='0' E='0' F='0' G='0' H='0' I='0' J='0' K='0' L='0' M='0' N='0' O='0' P='0' Q='0' R='0' S='0' T='0' U='0' V='0' W='0' X='0' Y='0' Z='0' />
+		</pins>
+	</ghost>
+	<components >
+		<settings autoimg='0' center='1' unitscale='0' fixedscale='0' fixedx='25' fixedy='25' fixedz='25' headcode='0' />
+		<definition guid='2479f805-69d8-48a8-807c-af9512c0ae84' vstate='40' vmin='0' vmaj='1' srcleaf='' visiblename='' description='' category='' category2='' category3='' bIs2dOnly='0' bIs3dOnly='0' catenable='1' author='' manuname='' manucode='' sysinfo='0' keywords='' dynamic='1' scadaCompatible='0' embeddedCompatible='1' showmacros='1' iconpath='' />
+		<component class_type='root' codename='ComponentRoot' panelId='-1' x='0' y='0' z='0' xsz='1' ysz='1' zsz='1' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='0' poslock='0' comp2dType='0' >
+			<resources />
+			<properties />
+			<values />
+			<events />
+			<apis />
+			<variables >
+				<variable public='0' >
+					<def class_type='variable' name='Str' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
+						<array size='20' />
+					</def>
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='Pressure' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='false' type='b1' description='' isconst='1' isHidden='0' isinit='1' usrinit='0' setinit='0' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='Y' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='X' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='Samp' type='u8' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='true' type='b1' description='' isconst='1' isHidden='0' isinit='1' usrinit='1' setinit='1' />
+				</variable>
+				<variable public='0' >
+					<def class_type='variable' name='Int' type='b1' description='' isconst='0' isHidden='0' isinit='1' usrinit='0' setinit='0' />
+				</variable>
+			</variables>
+			<macros >
+				<macro >
+					<flowline name='INT_Pin' description='' statediag='0' >
+						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
+						<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+							<exp exp='Int = 1' />
+						</command>
+					</flowline>
+				</macro>
+				<macro >
+					<flowline name='Main' description='' statediag='0' >
+						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
+						<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488_SPI1' macro='Initialise' />
+						<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='$pin39 = 0' swap='0' >
+							<flowline >
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FileSD1' macro='Initialise' >
+									<return exp='Samp' />
+								</command>
+								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='Str = &quot;Init: &quot; + ToString$ (Samp)' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488_SPI1' macro='Print' >
+									<argument exp='Str' />
+									<argument exp='10' />
+									<argument exp='10' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='BitmapDrawerFAT1' macro='Display_BMP_Fast' >
+									<argument exp='&quot;TEST.BMP&quot;' />
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+							</flowline>
+							<flowline />
+						</command>
+						<command class_type='output' title='Output' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' mode='1' port='4194304' mask='8192' exp='1' usechipref='0' />
+						<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='Initialise' />
+						<command class_type='interrupt' title='Interrupt' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' enable='1' name='GPIO14' call='INT_Pin' >
+							<settings timer='0' prescale='-1' postscale='-1' rollover='-1' bitcount='-1' trigger='1' ppsport='-1' ppspin='-1' maskhi='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' masklo='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' >
+								<option value='0' />
+								<option value='-1' />
+								<option value='-1' />
+								<option value='-1' />
+								<option value='-1' />
+								<option value='-1' />
+								<option value='-1' />
+								<option value='-1' />
+							</settings>
+						</command>
+						<command class_type='loop' title='Loop' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' type='0' exp='1' >
+							<flowline >
+								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='Int = 1' />
+								</command>
+								<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Int' swap='0' >
+									<flowline >
+										<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='Int = 0' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='SampleSensor' >
+											<return exp='Samp' />
+										</command>
+										<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Samp' swap='0' >
+											<flowline >
+												<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='ReadCoord' >
+													<return exp='X' />
+													<argument exp='0' />
+													<argument exp='0' />
+												</command>
+												<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='ReadCoord' >
+													<return exp='Y' />
+													<argument exp='1' />
+													<argument exp='0' />
+												</command>
+												<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488_SPI1' macro='DrawCircle' >
+													<argument exp='X * 12' />
+													<argument exp='Y * 9' />
+													<argument exp='5' />
+													<argument exp='0' />
+													<argument exp='1' />
+												</command>
+											</flowline>
+											<flowline />
+										</command>
+									</flowline>
+									<flowline >
+										<command class_type='delay' title='Delay' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='5' type='1' />
+									</flowline>
+								</command>
+							</flowline>
+						</command>
+					</flowline>
+				</macro>
+			</macros>
+			<component class_type='ref' guid='3408fde0-f512-487b-8902-74cd56623191' vmin='0' vmaj='2' codename='gLCD_ILI9488_SPI1' panelId='0' x='399' y='-185' z='4' xsz='25' ysz='25' zsz='25' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='1' comp2dType='0' >
+				<resources />
+				<properties />
+				<values >
+					<value target='pixel_width' data='320' />
+					<value target='pixel_height' data='480' />
+					<value target='FlipX' data='1' />
+					<value target='FlipY' data='0' />
+					<value target='monochrome' data='0' />
+					<value target='foreground_colour' data='65535' />
+					<value target='background_colour' data='16711808' />
+					<value target='BGCOL' data='16711808' />
+					<value target='FGCOL' data='65535' />
+					<value target='InvertColour' data='0' />
+					<value target='colour_bit_depth' data='18' />
+					<value target='red_bit_depth' data='6' />
+					<value target='green_bit_depth' data='6' />
+					<value target='blue_bit_depth' data='6' />
+					<value target='cal_spi1::CHANNEL' data='001' />
+					<value target='cal_spi1::PR_SCALE' data='320' />
+					<value target='cal_spi1::MOSI' data='$PORTA.26' />
+					<value target='cal_spi1::MOSIPins' data='007' />
+					<value target='cal_spi1::MISO' data='$PORTB.3' />
+					<value target='cal_spi1::MISOPins' data='003' />
+					<value target='cal_spi1::CLK' data='$PORTA.25' />
+					<value target='cal_spi1::CLKPins' data='006' />
+					<value target='ToggleCS' data='0' />
+					<value target='chip_sel_pin' data='$PORTB.0' />
+					<value target='dc_pin' data='$PORTB.1' />
+					<value target='reset_pin' data='$PORTA.27' />
+					<value target='led_pin' data='$PORTB.5' />
+					<value target='UseBacklight' data='0' />
+					<value target='Base_GLCD::FontCount' data='001' />
+					<value target='Base_GLCD::gLCD_Font1::Font' data='000' />
+					<value target='Base_GLCD::gLCD_Font1::FontSpace' data='001' />
+					<value target='Base_GLCD::gLCD_Font1::SpaceWidth' data='004' />
+					<value target='Base_GLCD::gLCD_Font2::Font' data='005' />
+					<value target='Base_GLCD::gLCD_Font2::FontSpace' data='001' />
+					<value target='Base_GLCD::gLCD_Font2::SpaceWidth' data='004' />
+					<value target='Base_GLCD::gLCD_Font3::Font' data='002' />
+					<value target='Base_GLCD::gLCD_Font3::FontSpace' data='001' />
+					<value target='Base_GLCD::gLCD_Font3::SpaceWidth' data='004' />
+					<value target='Base_GLCD::gLCD_Font4::Font' data='015' />
+					<value target='Base_GLCD::gLCD_Font4::FontSpace' data='001' />
+					<value target='Base_GLCD::gLCD_Font4::SpaceWidth' data='004' />
+					<value target='DisplayMethod' data='000' />
+					<value target='Base_GLCD::ComponentLabel' data='001' />
+					<value target='Base_GLCD::GdiText1::sText' data='gLCD_ILI9488_SPI' />
+					<value target='Base_GLCD::GdiText1::dScale' data='1.000000' />
+					<value target='Base_GLCD::PhysicalOrientation' data='' />
+					<value target='SimComms' data='0' />
+					<value target='cal_spi1::ConsoleData' data='1' />
+					<value target='cal_spi1::ScopeTraces' data='1' />
+					<value target='cal_spi1::Injector' data='000' />
+					<value target='cal_spi1::InjectorCS' data='' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+			</component>
+			<component class_type='ref' guid='90c9f255-b526-4288-b0b6-26736e6db2e2' vmin='0' vmaj='2' codename='FT6X06' panelId='0' x='164' y='-126' z='5' xsz='25' ysz='25' zsz='25' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='1' comp2dType='0' >
+				<resources />
+				<properties />
+				<values >
+					<value target='Component' data='' />
+					<value target='LibraryComponent1::InputIcon::LinkTo' data='001' />
+					<value target='cal_i2c1::CHANNEL' data='001' />
+					<value target='cal_i2c1::BAUD_LIST' data='002' />
+					<value target='cal_i2c1::BAUD' data='400000' />
+					<value target='cal_i2c1::StopDel' data='0' />
+					<value target='cal_i2c1::SDA' data='$PORTA.16' />
+					<value target='cal_i2c1::SDAPins' data='022' />
+					<value target='cal_i2c1::SCL' data='$PORTA.15' />
+					<value target='cal_i2c1::SCLPins' data='018' />
+					<value target='AnMode' data='000' />
+					<value target='Xpix' data='320' />
+					<value target='Ypix' data='480' />
+					<value target='FlipX' data='0' />
+					<value target='FlipY' data='0' />
+					<value target='label' data='FT6X06' />
+					<value target='EnableInterrupt' data='0' />
+					<value target='InterruptMacro' data='' />
+					<value target='SimComms' data='0' />
+					<value target='cal_i2c1::ScopeTraces' data='0' />
+					<value target='cal_i2c1::ConsoleData' data='0' />
+					<value target='cal_i2c1::Injector' data='000' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+			</component>
+			<component class_type='ref' guid='b02b7c75-53cb-4be4-871f-61be633d898c' vmin='2' vmaj='2' codename='BitmapDrawerFAT1' panelId='0' x='173' y='-301' z='3' xsz='25' ysz='25' zsz='25' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='1' comp2dType='0' >
+				<resources />
+				<properties />
+				<values >
+					<value target='glcd_obj' data='0' />
+					<value target='LibraryComponent1::InputIcon::LinkTo' data='001' />
+					<value target='fat_obj' data='0' />
+					<value target='LibraryComponent1::OutputIcon::LinkTo' data='001' />
+					<value target='Colour_Display' data='1' />
+					<value target='MIAC' data='0' />
+					<value target='WSLED' data='0' />
+					<value target='HT16K33' data='0' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+			</component>
+			<component class_type='ref' guid='0b61bd39-05a3-46ee-a2a5-da7bffb583c5' vmin='0' vmaj='3' codename='FileSD1' panelId='0' x='331' y='-445' z='6' xsz='25' ysz='25' zsz='25' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='0' comp2dType='0' >
+				<resources />
+				<properties />
+				<values >
+					<value target='cal_spi::CHANNEL' data='002' />
+					<value target='cal_spi::MOSI' data='$PORTA.19' />
+					<value target='cal_spi::MOSIPins' data='021' />
+					<value target='cal_spi::MISO' data='$PORTA.18' />
+					<value target='cal_spi::MISOPins' data='025' />
+					<value target='cal_spi::CLK' data='$PORTA.17' />
+					<value target='cal_spi::CLKPins' data='017' />
+					<value target='cal_spi::SS' data='$PORTA.22' />
+					<value target='PR_SCALE' data='004' />
+					<value target='PR_SCALE2' data='320' />
+					<value target='max_concurrent_files' data='1' />
+					<value target='EOFtype' data='001' />
+					<value target='IsSim' data='0' />
+					<value target='SimType' data='000' />
+					<value target='root_dir' data='$(srcdir)' />
+					<value target='cal_spi::ScopeTraces' data='0' />
+					<value target='cal_spi::ConsoleData' data='0' />
+					<value target='cal_spi::Injector' data='000' />
+					<value target='cal_spi1::InjectorCS' data='' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+			</component>
+			<component class_type='GdiLine' codename='LINK_LINE_39' panelId='0' x='253.67' y='-158.5' z='2' xsz='22.2228' ysz='19.968' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
+				<resources />
+				<properties />
+				<values >
+					<value target='nType' data='  1' />
+					<value target='nStyle' data='0' />
+					<value target='fThickness' data='2.00000' />
+					<value target='colOutline' data='0' />
+					<value target='colOutlineGradient' data='0' />
+					<value target='nOutlineStyle' data='0' />
+					<value target='nArrow1Style' data='0' />
+					<value target='nArrow1Length' data='5.00000' />
+					<value target='nArrow1Width' data='5.00000' />
+					<value target='brArrow1Fill' data='288090190566653952' />
+					<value target='nArrow2Style' data='0' />
+					<value target='nArrow2Length' data='5.00000' />
+					<value target='nArrow2Width' data='5.00000' />
+					<value target='brArrow2Fill' data='288090190566653952' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+				<connections size='4' >
+					<anchor_0 obj_id='-1' con_id='0' x='218' y='126' />
+					<anchor_1 obj_id='-1' con_id='0' x='257' y='126' />
+					<anchor_2 obj_id='-1' con_id='0' x='249' y='190' />
+					<anchor_3 obj_id='-1' con_id='0' x='289' y='190' />
+				</connections>
+			</component>
+			<component class_type='GdiLine' codename='LINK_LINE_61' panelId='0' x='258.17' y='-227.92' z='1' xsz='19.458' ysz='22.6836' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
+				<resources />
+				<properties />
+				<values >
+					<value target='nType' data='  1' />
+					<value target='nStyle' data='0' />
+					<value target='fThickness' data='2.00000' />
+					<value target='colOutline' data='0' />
+					<value target='colOutlineGradient' data='0' />
+					<value target='nOutlineStyle' data='0' />
+					<value target='nArrow1Style' data='0' />
+					<value target='nArrow1Length' data='5.00000' />
+					<value target='nArrow1Width' data='5.00000' />
+					<value target='brArrow1Fill' data='288090190566653952' />
+					<value target='nArrow2Style' data='0' />
+					<value target='nArrow2Length' data='5.00000' />
+					<value target='nArrow2Width' data='5.00000' />
+					<value target='brArrow2Fill' data='288090190566653952' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+				<connections size='4' >
+					<anchor_0 obj_id='-1' con_id='0' x='227' y='264' />
+					<anchor_1 obj_id='-1' con_id='0' x='266' y='264' />
+					<anchor_2 obj_id='-1' con_id='0' x='249' y='191' />
+					<anchor_3 obj_id='-1' con_id='0' x='289' y='191' />
+				</connections>
+			</component>
+			<component class_type='GdiLine' codename='LINK_LINE_60' panelId='0' x='251.25' y='-384.84' z='0' xsz='15.2064' ysz='34.4064' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
+				<resources />
+				<properties />
+				<values >
+					<value target='nType' data='  1' />
+					<value target='nStyle' data='0' />
+					<value target='fThickness' data='2.00000' />
+					<value target='colOutline' data='0' />
+					<value target='colOutlineGradient' data='0' />
+					<value target='nOutlineStyle' data='0' />
+					<value target='nArrow1Style' data='0' />
+					<value target='nArrow1Length' data='5.00000' />
+					<value target='nArrow1Width' data='5.00000' />
+					<value target='brArrow1Fill' data='288090190566653952' />
+					<value target='nArrow2Style' data='0' />
+					<value target='nArrow2Length' data='5.00000' />
+					<value target='nArrow2Width' data='5.00000' />
+					<value target='brArrow2Fill' data='288090190566653952' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+				<connections size='4' >
+					<anchor_0 obj_id='-1' con_id='0' x='226' y='329' />
+					<anchor_1 obj_id='-1' con_id='0' x='266' y='329' />
+					<anchor_2 obj_id='-1' con_id='0' x='236' y='439' />
+					<anchor_3 obj_id='-1' con_id='0' x='275' y='439' />
+				</connections>
+			</component>
+		</component>
+	</components>
+	<scadaresourcelookup />
+	<keymap />
+	<panel2d shadows='0' lighting='2' brightness='0' >
+		<background rgb='7292207' img='' style='0' />
+		<camera xe='0' ye='0' ze='884.469' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<viewport dx='591' dy='545' zoom='80.8519' fix_topleft='0' />
+		<page x='1000' y='1000' show='0' rgb='7360576' />
+		<winpos ID='7005' RectRecentFloat='1270,427,1920,877' RectRecentDocked='-409,489,182,1034' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+	</panel2d>
+	<panel3d shadows='0' lighting='2' brightness='0' perspective='1' >
+		<background rgb='8409120' img='' style='0' />
+		<table rgb='7360576' img='' style='0' size='0' />
+		<camera xe='0' ye='0' ze='781.66' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<camerakey0 xe='0' ye='0' ze='300' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<camerakey1 xe='-3.67394e-14' ye='0' ze='-300' xt='0' yt='0' zt='0' xquat='0' yquat='1' zquat='0' wquat='6.12323e-17' />
+		<camerakey2 xe='0' ye='-300' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.707107' yquat='0' zquat='0' wquat='0.707107' />
+		<camerakey3 xe='-3.67394e-14' ye='300' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-4.32978e-17' yquat='0.707107' zquat='0.707107' wquat='4.32978e-17' />
+		<camerakey4 xe='-300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='0.5' zquat='0.5' wquat='0.5' />
+		<camerakey5 xe='300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='-0.5' zquat='-0.5' wquat='0.5' />
+		<camerakey6 xe='-173.205' ye='-173.205' ze='173.205' xt='0' yt='0' zt='0' xquat='-0.424708' yquat='0.17592' zquat='0.339851' wquat='0.820473' />
+		<winpos ID='7004' RectRecentFloat='0,425,654,1002' RectRecentDocked='-1679,487,-1033,1033' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+	</panel3d>
+	<panels2d count='1' >
+		<panel2d_0 id='0' name='2D Panel' >
+			<winpos ID='1171' RectRecentFloat='2665,259,3315,847' RectRecentDocked='986,321,1628,878' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+			<background fill='288230376151053813' showgrid='1' gridstyle='1' gridsize='10' gridbrush='71776119075691740' snaptogrid='0' />
+		</panel2d_0>
+	</panels2d>
+	<layout >
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='830' flags='0' />
+		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+	</layout>
+</document>
+</root>
