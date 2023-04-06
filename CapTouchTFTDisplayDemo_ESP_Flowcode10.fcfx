@@ -1,5 +1,5 @@
 <root>
-<document scada='0' schema='103' license='10,BenR,C9TN1M' title='' description='' fcversion='655362' target='ESP.ESP32.Lolin32_Lite' >
+<document scada='0' schema='103' license='10,BenR,C9TN1M' title='' description='' fcversion='655362' target='ESP.ESP32.ESP32_WROOM_32' >
 	<config data='' clkspd='240000000' simspd='0' usewdt='0' constif='0' commport='9' Use3V3='0' />
 	<plugins >
 		<dll_models enabled='1' />
@@ -135,7 +135,7 @@
 						<command class_type='output' title='Output' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' mode='1' port='4194304' mask='8192' exp='1' usechipref='0' />
 						<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='Initialise' />
 						<command class_type='interrupt' title='Interrupt' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' enable='1' name='GPIO14' call='INT_Pin' >
-							<settings timer='0' prescale='-1' postscale='-1' rollover='-1' bitcount='-1' trigger='1' ppsport='-1' ppspin='-1' maskhi='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' masklo='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' >
+							<settings timer='0' prescale='-1' postscale='-1' rollover='-1' bitcount='-1' trigger='1' ppsport='-1' ppspin='-1' maskhi='AAAAAAAAAAD---------------------------------------------------------------------------------------------------------------------------------------------------------------8' masklo='AAAAAAAAAAD---------------------------------------------------------------------------------------------------------------------------------------------------------------8' >
 								<option value='0' />
 								<option value='-1' />
 								<option value='-1' />
@@ -307,11 +307,11 @@
 				<properties />
 				<values >
 					<value target='cal_spi::CHANNEL' data='002' />
-					<value target='cal_spi::MOSI' data='$PORTA.19' />
+					<value target='cal_spi::MOSI' data='$PORTA.4' />
 					<value target='cal_spi::MOSIPins' data='021' />
 					<value target='cal_spi::MISO' data='$PORTA.18' />
 					<value target='cal_spi::MISOPins' data='025' />
-					<value target='cal_spi::CLK' data='$PORTA.17' />
+					<value target='cal_spi::CLK' data='$PORTA.8' />
 					<value target='cal_spi::CLKPins' data='017' />
 					<value target='cal_spi::SS' data='$PORTA.22' />
 					<value target='PR_SCALE' data='004' />
