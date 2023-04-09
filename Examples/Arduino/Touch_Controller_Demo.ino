@@ -18,8 +18,9 @@ void setup(void)
   
   tft.init();
   
-  pinMode(TS_RESET,OUTPUT);   //set pin 8 to be an output output
-  digitalWrite(TS_RESET,HIGH);   //set pin 8 HIGH, turning on LED
+  //FT6236 reset pin - drive high
+  pinMode(TS_RESET,OUTPUT);
+  digitalWrite(TS_RESET,HIGH);
   
   ts.begin(40, I2C_SDA, I2C_SCL);
   tft.fillScreen((0xFFFF));
