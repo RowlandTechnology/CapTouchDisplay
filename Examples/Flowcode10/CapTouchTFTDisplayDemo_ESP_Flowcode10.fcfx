@@ -307,12 +307,12 @@
 				<properties />
 				<values >
 					<value target='cal_spi::CHANNEL' data='002' />
-					<value target='cal_spi::MOSI' data='$PORTA.4' />
-					<value target='cal_spi::MOSIPins' data='021' />
+					<value target='cal_spi::MOSI' data='$PORTA.19' />
+					<value target='cal_spi::MOSIPins' data='026' />
 					<value target='cal_spi::MISO' data='$PORTA.18' />
 					<value target='cal_spi::MISOPins' data='025' />
-					<value target='cal_spi::CLK' data='$PORTA.8' />
-					<value target='cal_spi::CLKPins' data='017' />
+					<value target='cal_spi::CLK' data='$PORTA.17' />
+					<value target='cal_spi::CLKPins' data='023' />
 					<value target='cal_spi::SS' data='$PORTA.22' />
 					<value target='PR_SCALE' data='004' />
 					<value target='PR_SCALE2' data='200' />
@@ -361,37 +361,7 @@
 					<anchor_3 obj_id='-1' con_id='0' x='289' y='190' />
 				</connections>
 			</component>
-			<component class_type='GdiLine' codename='LINK_LINE_61' panelId='0' x='258.17' y='-227.92' z='1' xsz='19.458' ysz='22.6836' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
-				<resources />
-				<properties />
-				<values >
-					<value target='nType' data='  1' />
-					<value target='nStyle' data='0' />
-					<value target='fThickness' data='2.00000' />
-					<value target='colOutline' data='0' />
-					<value target='colOutlineGradient' data='0' />
-					<value target='nOutlineStyle' data='0' />
-					<value target='nArrow1Style' data='0' />
-					<value target='nArrow1Length' data='5.00000' />
-					<value target='nArrow1Width' data='5.00000' />
-					<value target='brArrow1Fill' data='288090190566653952' />
-					<value target='nArrow2Style' data='0' />
-					<value target='nArrow2Length' data='5.00000' />
-					<value target='nArrow2Width' data='5.00000' />
-					<value target='brArrow2Fill' data='288090190566653952' />
-				</values>
-				<events />
-				<apis />
-				<variables />
-				<macros />
-				<connections size='4' >
-					<anchor_0 obj_id='-1' con_id='0' x='227' y='264' />
-					<anchor_1 obj_id='-1' con_id='0' x='266' y='264' />
-					<anchor_2 obj_id='-1' con_id='0' x='249' y='191' />
-					<anchor_3 obj_id='-1' con_id='0' x='289' y='191' />
-				</connections>
-			</component>
-			<component class_type='GdiLine' codename='LINK_LINE_60' panelId='0' x='251.25' y='-384.84' z='0' xsz='15.2064' ysz='34.4064' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
+			<component class_type='GdiLine' codename='LINK_LINE_60' panelId='0' x='251.25' y='-384.84' z='1' xsz='15.2064' ysz='34.4064' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
 				<resources />
 				<properties />
 				<values >
@@ -421,16 +391,46 @@
 					<anchor_3 obj_id='-1' con_id='0' x='275' y='439' />
 				</connections>
 			</component>
+			<component class_type='GdiLine' codename='LINK_LINE_61' panelId='0' x='258.17' y='-227.92' z='0' xsz='19.458' ysz='22.6836' zsz='0' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' scadavisible='1' interactive='1' solid='1' layer='2' poslock='8' comp2dType='46' >
+				<resources />
+				<properties />
+				<values >
+					<value target='nType' data='  1' />
+					<value target='nStyle' data='0' />
+					<value target='fThickness' data='2.00000' />
+					<value target='colOutline' data='0' />
+					<value target='colOutlineGradient' data='0' />
+					<value target='nOutlineStyle' data='0' />
+					<value target='nArrow1Style' data='0' />
+					<value target='nArrow1Length' data='5.00000' />
+					<value target='nArrow1Width' data='5.00000' />
+					<value target='brArrow1Fill' data='288090190566653952' />
+					<value target='nArrow2Style' data='0' />
+					<value target='nArrow2Length' data='5.00000' />
+					<value target='nArrow2Width' data='5.00000' />
+					<value target='brArrow2Fill' data='288090190566653952' />
+				</values>
+				<events />
+				<apis />
+				<variables />
+				<macros />
+				<connections size='4' >
+					<anchor_0 obj_id='-1' con_id='0' x='227' y='264' />
+					<anchor_1 obj_id='-1' con_id='0' x='266' y='264' />
+					<anchor_2 obj_id='-1' con_id='0' x='249' y='191' />
+					<anchor_3 obj_id='-1' con_id='0' x='289' y='191' />
+				</connections>
+			</component>
 		</component>
 	</components>
 	<scadaresourcelookup />
 	<keymap />
 	<panel2d shadows='0' lighting='2' brightness='0' >
 		<background rgb='7292207' img='' style='0' />
-		<camera xe='0' ye='0' ze='854.538' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
-		<viewport dx='1154' dy='667' zoom='163.403' fix_topleft='0' />
+		<camera xe='0' ye='0' ze='328.782' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<viewport dx='444' dy='396' zoom='163.403' fix_topleft='0' />
 		<page x='1000' y='1000' show='0' rgb='7360576' />
-		<winpos ID='7005' RectRecentFloat='1270,427,1920,877' RectRecentDocked='-409,489,182,1156' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+		<winpos ID='7005' RectRecentFloat='1270,427,1920,877' RectRecentDocked='0,0,444,419' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 	</panel2d>
 	<panel3d shadows='0' lighting='2' brightness='0' perspective='1' >
 		<background rgb='8409120' img='' style='0' />
@@ -443,17 +443,17 @@
 		<camerakey4 xe='-300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='0.5' zquat='0.5' wquat='0.5' />
 		<camerakey5 xe='300' ye='-6.66134e-14' ze='6.66134e-14' xt='0' yt='0' zt='0' xquat='-0.5' yquat='-0.5' zquat='-0.5' wquat='0.5' />
 		<camerakey6 xe='-173.205' ye='-173.205' ze='173.205' xt='0' yt='0' zt='0' xquat='-0.424708' yquat='0.17592' zquat='0.339851' wquat='0.820473' />
-		<winpos ID='7004' RectRecentFloat='0,425,654,1002' RectRecentDocked='-1679,487,-1088,1033' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+		<winpos ID='7004' RectRecentFloat='0,425,654,1002' RectRecentDocked='0,0,444,546' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 	</panel3d>
 	<panels2d count='1' >
 		<panel2d_0 id='0' name='2D Panel' >
-			<winpos ID='1171' RectRecentFloat='2665,259,3315,847' RectRecentDocked='986,321,1628,878' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+			<winpos ID='1171' RectRecentFloat='2665,259,3315,847' RectRecentDocked='801,141,1245,983' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 			<background fill='288230376151053813' showgrid='1' gridstyle='1' gridsize='10' gridbrush='71776119075691740' snaptogrid='0' />
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAmgQAAF0DAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAdAMAAEUDAAA' zoom='100' scrollx='0' scrolly='432' flags='0' />
+		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAdAMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 	</layout>
 </document>
 </root>
