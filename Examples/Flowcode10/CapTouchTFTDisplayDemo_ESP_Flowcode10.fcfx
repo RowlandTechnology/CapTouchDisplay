@@ -452,7 +452,7 @@
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAdAMAAEUDAAA' zoom='100' scrollx='0' scrolly='432' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAdAMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAdAMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 	</layout>
 </document>
