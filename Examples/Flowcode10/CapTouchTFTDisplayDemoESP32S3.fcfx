@@ -97,6 +97,9 @@
 					<def class_type='variable' name='TouchAreaIndex' type='u8' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
 				</variable>
 				<variable public='0' >
+					<def class_type='variable' name='CountRollover' type='u32' description='' isconst='0' isHidden='0' isinit='1' usrinit='100' setinit='100' />
+				</variable>
+				<variable public='0' >
 					<def class_type='variable' name='Password' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
 						<array size='35' />
 					</def>
@@ -162,89 +165,46 @@
 							<flowline >
 								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='0' />
-									<argument exp='0' />
-									<argument exp='160' />
-									<argument exp='160' />
+									<argument exp='10' />
+									<argument exp='10' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Top Right' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='160' />
-									<argument exp='0' />
-									<argument exp='160' />
-									<argument exp='160' />
+									<argument exp='170' />
+									<argument exp='10' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Middle Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='0' />
-									<argument exp='160' />
-									<argument exp='160' />
-									<argument exp='160' />
+									<argument exp='10' />
+									<argument exp='170' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Middle RIght' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='160' />
-									<argument exp='160' />
-									<argument exp='160' />
-									<argument exp='160' />
+									<argument exp='170' />
+									<argument exp='170' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Bottom Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='0' />
-									<argument exp='320' />
-									<argument exp='160' />
-									<argument exp='160' />
+									<argument exp='10' />
+									<argument exp='330' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Bottom Right' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='160' />
-									<argument exp='320' />
-									<argument exp='160' />
-									<argument exp='160' />
-								</command>
-								<command class_type='comment' title='' comment='Draw Touch Boundaries' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
-								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='10' />
-									<argument exp='10' />
-									<argument exp='150' />
-									<argument exp='150' />
-									<argument exp='1' />
-									<argument exp='0' />
-								</command>
-								<command class_type='call' title='Top Right' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='170' />
-									<argument exp='10' />
-									<argument exp='310' />
-									<argument exp='150' />
-									<argument exp='1' />
-									<argument exp='0' />
-								</command>
-								<command class_type='call' title='Middle Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='10' />
-									<argument exp='170' />
-									<argument exp='150' />
-									<argument exp='310' />
-									<argument exp='1' />
-									<argument exp='0' />
-								</command>
-								<command class_type='call' title='Middle Right' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='170' />
-									<argument exp='170' />
-									<argument exp='310' />
-									<argument exp='310' />
-									<argument exp='1' />
-									<argument exp='0' />
-								</command>
-								<command class_type='call' title='Bottom Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='10' />
-									<argument exp='330' />
-									<argument exp='150' />
-									<argument exp='470' />
-									<argument exp='1' />
-									<argument exp='0' />
-								</command>
-								<command class_type='call' title='Bottom Right' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
 									<argument exp='170' />
 									<argument exp='330' />
-									<argument exp='310' />
-									<argument exp='470' />
+									<argument exp='140' />
+									<argument exp='140' />
 									<argument exp='1' />
-									<argument exp='0' />
 								</command>
 								<command class_type='comment' title='' comment='Draw Touch Icons' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Draw Paint Logo - centered in touch area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='BitmapDrawer1' macro='Display_BMP' >
@@ -306,173 +266,115 @@
 									<argument exp='0' />
 									<argument exp='100' />
 									<argument exp='100' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='160' />
-									<argument exp='0' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='200' />
-									<argument exp='0' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='240' />
-									<argument exp='0' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='280' />
-									<argument exp='0' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='160' />
-									<argument exp='40' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='200' />
-									<argument exp='40' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='240' />
-									<argument exp='40' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='280' />
-									<argument exp='40' />
-									<argument exp='40' />
-									<argument exp='40' />
-								</command>
-								<command class_type='call' title='Main Drawing Area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='0' />
-									<argument exp='100' />
-									<argument exp='320' />
-									<argument exp='380' />
-								</command>
-								<command class_type='comment' title='' comment='Draw Touch Boundaries' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
-								<command class_type='call' title='Home Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='0' />
-									<argument exp='0' />
-									<argument exp='99' />
-									<argument exp='99' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to White' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='255' />
 									<argument exp='255' />
 									<argument exp='255' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='160' />
 									<argument exp='0' />
-									<argument exp='199' />
-									<argument exp='39' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='0' />
 									<argument exp='0' />
 									<argument exp='0' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='200' />
 									<argument exp='0' />
-									<argument exp='239' />
-									<argument exp='39' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Red' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='255' />
 									<argument exp='0' />
 									<argument exp='0' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='240' />
 									<argument exp='0' />
-									<argument exp='279' />
-									<argument exp='39' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Green' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='0' />
 									<argument exp='255' />
 									<argument exp='0' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='280' />
 									<argument exp='0' />
-									<argument exp='319' />
-									<argument exp='39' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Blue' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='0' />
 									<argument exp='0' />
 									<argument exp='255' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='160' />
 									<argument exp='40' />
-									<argument exp='199' />
-									<argument exp='79' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Yellow' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='255' />
 									<argument exp='255' />
 									<argument exp='0' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='200' />
 									<argument exp='40' />
-									<argument exp='239' />
-									<argument exp='79' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Purple' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='255' />
 									<argument exp='0' />
 									<argument exp='255' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='240' />
 									<argument exp='40' />
-									<argument exp='279' />
-									<argument exp='79' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
 								</command>
 								<command class_type='call' title='Change BG Colour to Teal' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
 									<argument exp='0' />
 									<argument exp='255' />
 									<argument exp='255' />
 								</command>
-								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='call' title='Colour Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='280' />
 									<argument exp='40' />
-									<argument exp='319' />
-									<argument exp='79' />
+									<argument exp='40' />
+									<argument exp='40' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Main Drawing Area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='0' />
+									<argument exp='100' />
+									<argument exp='320' />
+									<argument exp='380' />
 									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Change BG Colour to White' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetBackgroundColour' >
+									<argument exp='255' />
+									<argument exp='255' />
+									<argument exp='255' />
 								</command>
 								<command class_type='comment' title='' comment='Draw Touch Icons' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Draw Home Logo - centered in touch area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='BitmapDrawer1' macro='Display_BMP' >
@@ -488,21 +390,16 @@
 						</command>
 						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
 							<flowline >
+								<command class_type='calculation' title='Update every second' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='CountRollover = 100' />
+								</command>
 								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='0' />
 									<argument exp='0' />
 									<argument exp='100' />
 									<argument exp='100' />
-								</command>
-								<command class_type='comment' title='' comment='Draw Touch Boundaries' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
-								<command class_type='call' title='Home Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
-									<argument exp='0' />
-									<argument exp='0' />
-									<argument exp='99' />
-									<argument exp='99' />
-									<argument exp='0' />
-									<argument exp='0' />
+									<argument exp='1' />
 								</command>
 								<command class_type='comment' title='' comment='Draw Touch Icons' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Draw Home Logo - centered in touch area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='BitmapDrawer1' macro='Display_BMP' >
@@ -590,12 +487,8 @@
 						</command>
 						<command class_type='decision' title='Timer Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 5' swap='0' >
 							<flowline >
-								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
-								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
-									<argument exp='0' />
-									<argument exp='0' />
-									<argument exp='100' />
-									<argument exp='100' />
+								<command class_type='calculation' title='Update every tenth second' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='CountRollover = 1' />
 								</command>
 								<command class_type='comment' title='' comment='Perform timing' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='StartCounter' >
@@ -606,23 +499,81 @@
 								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='GetCountMilliseconds' >
 									<return exp='Count' />
 								</command>
+								<command class_type='comment' title='' comment='Draw Refresh clear time' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
 								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
 									<exp exp='Str = &quot;Redraw Time: &quot; + ToString$(Count) + &quot; ms&quot;' />
 								</command>
 								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
 									<argument exp='Str' />
-									<argument exp='160' />
+									<argument exp='150' />
 									<argument exp='10' />
 									<argument exp='0' />
 									<argument exp='0' />
 								</command>
-								<command class_type='comment' title='' comment='Draw Touch Boundaries' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
-								<command class_type='call' title='Home Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetFontScaler' >
+									<argument exp='3' />
+									<argument exp='3' />
+								</command>
+								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
 									<argument exp='0' />
 									<argument exp='0' />
-									<argument exp='99' />
-									<argument exp='99' />
+									<argument exp='100' />
+									<argument exp='100' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Start' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
+									<argument exp='10' />
+									<argument exp='110' />
+									<argument exp='140' />
+									<argument exp='70' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+									<argument exp='&quot;Start&quot;' />
+									<argument exp='30' />
+									<argument exp='140' />
 									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Stop' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
+									<argument exp='120' />
+									<argument exp='110' />
+									<argument exp='140' />
+									<argument exp='70' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+									<argument exp='&quot;Stop&quot;' />
+									<argument exp='140' />
+									<argument exp='140' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Reset' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
+									<argument exp='10' />
+									<argument exp='190' />
+									<argument exp='140' />
+									<argument exp='70' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+									<argument exp='&quot;Reset&quot;' />
+									<argument exp='30' />
+									<argument exp='210' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetFontScaler' >
+									<argument exp='1' />
+									<argument exp='1' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='ResetCounter' />
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+									<argument exp='&quot;00:00&quot;' />
+									<argument exp='10' />
+									<argument exp='300' />
+									<argument exp='1' />
 									<argument exp='0' />
 								</command>
 								<command class_type='comment' title='' comment='Draw Touch Icons' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
@@ -887,6 +838,23 @@
 											</command>
 										</flowline>
 									</case>
+									<case exp='1' >
+										<flowline >
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='StartCounter' >
+												<argument exp='0' />
+											</command>
+										</flowline>
+									</case>
+									<case exp='2' >
+										<flowline >
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='StopCounter' />
+										</flowline>
+									</case>
+									<case exp='3' >
+										<flowline >
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='ResetCounter' />
+										</flowline>
+									</case>
 								</command>
 								<command class_type='goto' title='Goto Connection Point' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' labelid='0' labelname='' />
 							</flowline>
@@ -983,8 +951,14 @@
 					<flowline name='UpdateDisplay' description='' statediag='0' >
 						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
 						<local name='Str' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
-							<array size='20' />
+							<array size='30' />
 						</local>
+						<local name='Val' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+						<command class_type='call' title='Set FG colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
+							<argument exp='0' />
+							<argument exp='0' />
+							<argument exp='0' />
+						</command>
 						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
 							<flowline >
 								<command class_type='decision' title='Wifi Connected?' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus' swap='0' >
@@ -1023,6 +997,48 @@
 							</flowline>
 							<flowline />
 						</command>
+						<command class_type='decision' title='Timer Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 5' swap='0' >
+							<flowline >
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='GetCountSeconds' >
+									<return exp='.val' />
+								</command>
+								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='.Str = ToString$(.val)' />
+								</command>
+								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='.Str = .Str + &quot;:&quot;' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='GetCountMilliseconds' >
+									<return exp='.val' />
+								</command>
+								<command class_type='calculation' title='Get 10&apos;s of ms' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='.val = .val % 1000' />
+									<exp exp='.val = .val / 10' />
+								</command>
+								<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='.val &lt; 10' swap='0' >
+									<flowline >
+										<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='.Str = .Str + &quot;0&quot;' />
+										</command>
+									</flowline>
+									<flowline />
+								</command>
+								<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='.Str = .Str + ToString$(.val)' />
+								</command>
+								<command class_type='calculation' title='Blanking spaces' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+									<exp exp='.Str = .Str + &quot;         &quot;' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+									<argument exp='.Str' />
+									<argument exp='10' />
+									<argument exp='300' />
+									<argument exp='1' />
+									<argument exp='0' />
+								</command>
+							</flowline>
+							<flowline />
+						</command>
 					</flowline>
 				</macro>
 				<macro >
@@ -1041,6 +1057,7 @@ sensor interrupt pin.' statediag='0' >
 						<param name='Y' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
 						<param name='Width' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
 						<param name='Height' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
+						<param name='DrawArea' type='b1' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
 						<command class_type='calculation' title='Assign touch area variables and increment counter' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
 							<exp exp='.Return = TouchAreaCount' />
 							<exp exp='' />
@@ -1050,6 +1067,19 @@ sensor interrupt pin.' statediag='0' >
 							<exp exp='TouchAreaHeight[TouchAreaCount] = .Height' />
 							<exp exp='' />
 							<exp exp='TouchAreaCount = TouchAreaCount + 1' />
+						</command>
+						<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='.DrawArea' swap='0' >
+							<flowline >
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+									<argument exp='.X' />
+									<argument exp='.Y' />
+									<argument exp='.X + (.Width - 1)' />
+									<argument exp='.Y + (.Height - 1)' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+							</flowline>
+							<flowline />
 						</command>
 					</flowline>
 				</macro>
@@ -1133,7 +1163,7 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 										<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
 											<exp exp='Count = Count + 1' />
 										</command>
-										<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Count &gt; 100' swap='0' >
+										<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Count &gt; CountRollover' swap='0' >
 											<flowline >
 												<command class_type='call' title='User Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='UpdateDisplay' />
 												<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
@@ -1742,15 +1772,15 @@ Connecting to SSID.
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='699' flags='0' />
 		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaRegister' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaClearAll' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaCheck' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='95' scrollx='0' scrolly='4295' flags='0' />
-		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='95' scrollx='0' scrolly='4641' flags='0' />
+		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='861' flags='0' />
 		<view type='0' name='ConnectToWIFI' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='UpdateDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='UpdateDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='914' flags='0' />
 	</layout>
 </document>
 </root>
