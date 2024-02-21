@@ -1,10 +1,10 @@
 <root>
-<document scada='0' schema='103' license='10,BenR,C9TN1M' title='' description='' fcversion='655616' target='ESP.ESP32.ESP32-S3' >
+<document scada='0' schema='103' license='10,BenR,C9TN1M' title='' description='' fcversion='655616' target='ESP.ESP32.ESP32-S3_DevKitC' >
 	<config data='' clkspd='240000000' simspd='0' usewdt='0' constif='0' commport='13' Use3V3='0' />
 	<plugins >
 		<dll_models enabled='1' />
 	</plugins>
-	<supplement use='1' head='#define gpio_pad_select_gpio esp_rom_gpio_pad_select_gpio
+	<supplement use='0' head='
 
 ' body='' />
 	<debug />
@@ -142,6 +142,10 @@
 				<macro >
 					<flowline name='SetupDisplay' description='' statediag='0' >
 						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
+						<local name='Str' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
+							<array size='20' />
+						</local>
+						<local name='Status' type='b1' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
 						<command class_type='call' title='Remove all touch areas' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaClearAll' />
 						<command class_type='call' title='Change FG Colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
 							<argument exp='0' />
@@ -482,6 +486,108 @@
 							</flowline>
 							<flowline />
 						</command>
+						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
+							<flowline >
+								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
+								<command class_type='call' title='Top Left' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='TouchAreaRegister' >
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='100' />
+									<argument exp='100' />
+								</command>
+								<command class_type='comment' title='' comment='Draw Touch Boundaries' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
+								<command class_type='call' title='Home Square' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='99' />
+									<argument exp='99' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='comment' title='' comment='Draw Touch Icons' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
+								<command class_type='call' title='Draw Home Logo - centered in touch area' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='BitmapDrawer1' macro='Display_BMP' >
+									<argument exp='3' />
+									<argument exp='10' />
+									<argument exp='10' />
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='comment' title='' comment='Draw Clock' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
+								<command class_type='call' title='Set FG colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
+								<command class_type='decision' title='Wifi Connected?' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus' swap='0' >
+									<flowline >
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='Initialise' />
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='&quot;Query time server&quot;' />
+											<argument exp='110' />
+											<argument exp='10' />
+											<argument exp='0' />
+											<argument exp='0' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='QueryTimeServer' >
+											<return exp='.Status' />
+										</command>
+										<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='.Status' swap='0' >
+											<flowline >
+												<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+													<argument exp='&quot;OK&quot;' />
+													<argument exp='110' />
+													<argument exp='30' />
+													<argument exp='0' />
+													<argument exp='0' />
+												</command>
+											</flowline>
+											<flowline >
+												<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+													<argument exp='&quot;Fail&quot;' />
+													<argument exp='110' />
+													<argument exp='30' />
+													<argument exp='0' />
+													<argument exp='0' />
+												</command>
+											</flowline>
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='GetTimeString' >
+											<return exp='.Str' />
+											<argument exp='1' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='.Str' />
+											<argument exp='10' />
+											<argument exp='120' />
+											<argument exp='1' />
+											<argument exp='0' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='GetDateString' >
+											<return exp='.Str' />
+											<argument exp='0' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='.Str' />
+											<argument exp='10' />
+											<argument exp='180' />
+											<argument exp='1' />
+											<argument exp='0' />
+										</command>
+									</flowline>
+									<flowline >
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='&quot;WIFI not connected&quot;' />
+											<argument exp='10' />
+											<argument exp='120' />
+											<argument exp='0' />
+											<argument exp='0' />
+										</command>
+									</flowline>
+								</command>
+							</flowline>
+							<flowline />
+						</command>
 						<command class_type='decision' title='Timer Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 5' swap='0' >
 							<flowline >
 								<command class_type='comment' title='' comment='Create Touch Areas' textarea='12,0,12,0' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' />
@@ -561,7 +667,11 @@
 										<flowline />
 									</case>
 									<case exp='2' >
-										<flowline />
+										<flowline >
+											<command class_type='calculation' title='Jump to Clock mode' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+												<exp exp='DisplayMode = 3' />
+											</command>
+										</flowline>
 									</case>
 									<case exp='3' >
 										<flowline />
@@ -601,6 +711,14 @@
 												<argument exp='255' />
 												<argument exp='255' />
 											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
+											</command>
 										</flowline>
 									</case>
 									<case exp='2' >
@@ -609,6 +727,14 @@
 												<argument exp='0' />
 												<argument exp='0' />
 												<argument exp='0' />
+											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
 											</command>
 										</flowline>
 									</case>
@@ -619,6 +745,14 @@
 												<argument exp='0' />
 												<argument exp='0' />
 											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
+											</command>
 										</flowline>
 									</case>
 									<case exp='4' >
@@ -627,6 +761,14 @@
 												<argument exp='0' />
 												<argument exp='255' />
 												<argument exp='0' />
+											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
 											</command>
 										</flowline>
 									</case>
@@ -637,6 +779,14 @@
 												<argument exp='0' />
 												<argument exp='255' />
 											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
+											</command>
 										</flowline>
 									</case>
 									<case exp='6' >
@@ -645,6 +795,14 @@
 												<argument exp='255' />
 												<argument exp='255' />
 												<argument exp='0' />
+											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
 											</command>
 										</flowline>
 									</case>
@@ -655,6 +813,14 @@
 												<argument exp='0' />
 												<argument exp='255' />
 											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
+											</command>
 										</flowline>
 									</case>
 									<case exp='8' >
@@ -663,6 +829,14 @@
 												<argument exp='0' />
 												<argument exp='255' />
 												<argument exp='255' />
+											</command>
+											<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='DrawRectangle' >
+												<argument exp='110' />
+												<argument exp='10' />
+												<argument exp='150' />
+												<argument exp='70' />
+												<argument exp='0' />
+												<argument exp='1' />
 											</command>
 										</flowline>
 									</case>
@@ -674,6 +848,24 @@
 												<argument exp='5' />
 												<argument exp='0' />
 												<argument exp='1' />
+											</command>
+										</flowline>
+									</case>
+								</command>
+								<command class_type='goto' title='Goto Connection Point' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' labelid='0' labelname='' />
+							</flowline>
+							<flowline />
+						</command>
+						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
+							<flowline >
+								<command class_type='switch' title='Switch' textarea='36,25,36,25' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='TouchAreaIndex' >
+									<case >
+										<flowline />
+									</case>
+									<case exp='0' >
+										<flowline >
+											<command class_type='calculation' title='Jump to Home Screen' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+												<exp exp='DisplayMode = 0' />
 											</command>
 										</flowline>
 									</case>
@@ -769,7 +961,68 @@
 								</command>
 							</flowline>
 						</command>
+						<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus = 0' swap='0' >
+							<flowline >
+								<command class_type='call' title='Not connected - Host our own network' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='WLAN_ESP32' macro='CreateAccessPoint' >
+									<argument exp='&quot;RT_Wifi&quot;' />
+									<argument exp='&quot;&quot;' />
+									<argument exp='1' />
+									<argument exp='0' />
+								</command>
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Webserver1' macro='Initialise' />
+								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Webserver1' macro='CreateServerSocket' >
+									<argument exp='80' />
+								</command>
+							</flowline>
+							<flowline />
+						</command>
 						<command class_type='delay' title='Delay' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='1' type='2' />
+					</flowline>
+				</macro>
+				<macro >
+					<flowline name='UpdateDisplay' description='' statediag='0' >
+						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
+						<local name='Str' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
+							<array size='20' />
+						</local>
+						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
+							<flowline >
+								<command class_type='decision' title='Wifi Connected?' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus' swap='0' >
+									<flowline >
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='GetTimeString' >
+											<return exp='.Str' />
+											<argument exp='1' />
+										</command>
+										<command class_type='calculation' title='Add padding spaces to end of string' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='.Str = .Str + &quot;    &quot;' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='.Str' />
+											<argument exp='10' />
+											<argument exp='120' />
+											<argument exp='1' />
+											<argument exp='0' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='GetDateString' >
+											<return exp='.Str' />
+											<argument exp='0' />
+										</command>
+										<command class_type='calculation' title='Add padding spaces to end of string' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='.Str = .Str + &quot;    &quot;' />
+										</command>
+										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='Print' >
+											<argument exp='.Str' />
+											<argument exp='10' />
+											<argument exp='180' />
+											<argument exp='1' />
+											<argument exp='0' />
+										</command>
+									</flowline>
+									<flowline />
+								</command>
+							</flowline>
+							<flowline />
+						</command>
 					</flowline>
 				</macro>
 				<macro >
@@ -834,6 +1087,9 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 				<macro >
 					<flowline name='Main' description='' statediag='0' >
 						<return name='Return' type='v0' description='' isconst='0' isHidden='0' isinit='0' usrinit='' setinit='' />
+						<local name='PageRequest' type='T8' description='' isconst='0' isHidden='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
+							<array size='20' />
+						</local>
 						<command class_type='call' title='Enable Backlight PWM Output' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Backlight' macro='Enable' />
 						<command class_type='call' title='50% Brightness' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Backlight' macro='SetDutyCycle10Bit' >
 							<argument exp='128' />
@@ -853,7 +1109,7 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 						<command class_type='call' title='User Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='ConnectToWIFI' />
 						<command class_type='call' title='Startup Touch interface' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='FT6X06' macro='Initialise' />
 						<command class_type='interrupt' title='Enable touch interrupt' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' enable='1' name='GPIO39' call='INT_Pin' >
-							<settings timer='0' prescale='-1' postscale='-1' rollover='-1' bitcount='-1' trigger='1' ppsport='-1' ppspin='-1' maskhi='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' masklo='--------------------------------------------------------------------------------------------------------------------------------------------------------------------------8' >
+							<settings timer='0' prescale='-1' postscale='-1' rollover='-1' bitcount='-1' trigger='1' ppsport='-1' ppspin='-1' maskhi='AAAAAAAAAAD---------------------------------------------------------------------------------------------------------------------------------------------------------------8' masklo='AAAAAAAAAAD---------------------------------------------------------------------------------------------------------------------------------------------------------------8' >
 								<option value='0' />
 								<option value='0' />
 								<option value='0' />
@@ -873,7 +1129,20 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 											<exp exp='DisplayModeOld = DisplayMode' />
 										</command>
 									</flowline>
-									<flowline />
+									<flowline >
+										<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='Count = Count + 1' />
+										</command>
+										<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Count &gt; 100' swap='0' >
+											<flowline >
+												<command class_type='call' title='User Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='UpdateDisplay' />
+												<command class_type='calculation' title='Calculation' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+													<exp exp='Count = 0' />
+												</command>
+											</flowline>
+											<flowline />
+										</command>
+									</flowline>
 								</command>
 								<command class_type='decision' title='In simulation override the touch sensor interrupt' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='IsSim1::Check()' swap='0' >
 									<flowline >
@@ -916,6 +1185,45 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 										</command>
 										<command class_type='calculation' title='Clear touch' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
 											<exp exp='TouchActive = 0' />
+										</command>
+									</flowline>
+									<flowline />
+								</command>
+								<command class_type='decision' title='Decision' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus = 0' swap='0' >
+									<flowline >
+										<command class_type='call' title='Check for activity on hosted network' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Webserver1' macro='CheckSocketActivity' >
+											<return exp='.PageRequest' />
+										</command>
+										<command class_type='calculation' title='Chop out the first 10 chars from the URL' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+											<exp exp='.PageRequest = Left$(.PageRequest,10)' />
+										</command>
+										<command class_type='decision' title='Check for submit URL' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='Compare$(.PageRequest,&quot;submit.htm&quot;,0) == 0' swap='0' >
+											<flowline >
+												<command class_type='call' title='Get Form SSID' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Webserver1' macro='GetInValue' >
+													<return exp='SSID' />
+													<argument exp='0' />
+												</command>
+												<command class_type='call' title='Get Form Password' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Webserver1' macro='GetInValue' >
+													<return exp='Password' />
+													<argument exp='1' />
+												</command>
+												<command class_type='call' title='Save to EEPROM' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='eeprom1' macro='WriteString' >
+													<argument exp='0' />
+													<argument exp='35' />
+													<argument exp='SSID' />
+												</command>
+												<command class_type='call' title='Save to EEPROM' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='eeprom1' macro='WriteString' >
+													<argument exp='35' />
+													<argument exp='35' />
+													<argument exp='Password' />
+												</command>
+												<command class_type='call' title='Disconnect from hosted network' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='WLAN_ESP32' macro='Disconnect' />
+												<command class_type='call' title='Attempt to connect to new network' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' macro='ConnectToWIFI' />
+												<command class_type='calculation' title='Force a refresh' cmdcolor='4206456' cmdcolor_sec='10785756' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' >
+													<exp exp='DisplayModeOld = 255' />
+												</command>
+											</flowline>
+											<flowline />
 										</command>
 									</flowline>
 									<flowline />
@@ -1014,11 +1322,11 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 					<value target='UseBacklight' data='0' />
 					<value target='led_pin' data='$PORTB.5' />
 					<value target='ESP_OPT' data='1' />
-					<value target='Base_GLCD::FontCount' data='001' />
+					<value target='Base_GLCD::FontCount' data='002' />
 					<value target='Base_GLCD::gLCD_Font1::Font' data='006' />
 					<value target='Base_GLCD::gLCD_Font1::FontSpace' data='001' />
 					<value target='Base_GLCD::gLCD_Font1::SpaceWidth' data='004' />
-					<value target='Base_GLCD::gLCD_Font2::Font' data='005' />
+					<value target='Base_GLCD::gLCD_Font2::Font' data='015' />
 					<value target='Base_GLCD::gLCD_Font2::FontSpace' data='001' />
 					<value target='Base_GLCD::gLCD_Font2::SpaceWidth' data='004' />
 					<value target='Base_GLCD::gLCD_Font3::Font' data='002' />
@@ -1044,7 +1352,7 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 				<values >
 					<value target='channel' data='001' />
 					<value target='altpin' data='0' />
-					<value target='pwm_pin' data='$PORTA.21' />
+					<value target='pwm_pin' data='$PORTB.16' />
 					<value target='RemapPin' data='021' />
 					<value target='timer' data='000' />
 					<value target='period' data='255' />
@@ -1062,7 +1370,7 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 					<value target='ClockSpeed' data='240000000' />
 					<value target='SimRep' data='000' />
 					<value target='Family' data='ESP' />
-					<value target='ModifiedConnection' data='A.21' />
+					<value target='ModifiedConnection' data='B.16' />
 				</values>
 				<events />
 				<apis />
@@ -1074,6 +1382,8 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 				<properties />
 				<values >
 					<value target='Timer' data='000' />
+					<value target='Prescaler' data='000' />
+					<value target='Postscaler' data='000' />
 					<value target='Resolution' data='1000' />
 					<value target='BitDepth' data='8' />
 					<value target='InstructionRate' data='1000000' />
@@ -1166,11 +1476,11 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 					<value target='FileHeight6' data='100' />
 					<value target='DataOffset6' data='54' />
 					<value target='bitmap_file7' data='Select a file -&gt;' />
-					<value target='ColourDepth7' data='' />
+					<value target='ColourDepth7' data='0' />
 					<value target='file_Len7' data='0' />
-					<value target='FileWidth7' data='' />
-					<value target='FileHeight7' data='' />
-					<value target='DataOffset7' data='' />
+					<value target='FileWidth7' data='0' />
+					<value target='FileHeight7' data='0' />
+					<value target='DataOffset7' data='0' />
 					<value target='bitmap_file8' data='Select a file -&gt;' />
 					<value target='ColourDepth8' data='' />
 					<value target='file_Len8' data='0' />
@@ -1281,19 +1591,19 @@ Returns 255 for no touch or the touch Index' statediag='0' >
 					<value target='max_pages' data='2' />
 					<value target='name1' data='index.htm' />
 					<value target='html1' data='&lt;html&gt;
-&lt;body&gt;
-&lt;h1&gt;Flowcode Webserver&lt;/h1&gt;
-Webpage Created by Flowcode Webserver.&lt;br /&gt;
-&lt;a href=&quot;page2.htm&quot;&gt;Click here for page2.&lt;/a&gt;
-&lt;/body&gt;
+Rowland Technology Display - Network Config Page
+ &lt;form action=&quot;submit.htm&quot;&gt;
+    &lt;label for=&quot;0&quot;&gt;SSID&lt;/label&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Enter SSID&quot; name=&quot;0&quot; required&gt;&lt;br /&gt;
+    &lt;label for=&quot;1&quot;&gt;&lt;b&gt;Password&lt;/b&gt;&lt;/label&gt;
+    &lt;input type=&quot;password&quot; placeholder=&quot;Enter Password&quot; name=&quot;1&quot; required&gt;&lt;br /&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;registerbtn&quot;&gt;Register&lt;/button&gt;
+&lt;/form&gt; 
 &lt;/html&gt;' />
-					<value target='name2' data='page2.htm' />
+					<value target='name2' data='submit.htm' />
 					<value target='html2' data='&lt;html&gt;
-&lt;body&gt;
-&lt;h1&gt;Flowcode SCADA Page2&lt;/h1&gt;
-Webpage Created by Flowcode Webserver.&lt;br /&gt;
-&lt;a href=&quot;index.htm&quot;&gt;Click here for page1.&lt;/a&gt;
-&lt;/body&gt;
+SSID and Password collected.&lt;br /&gt;
+Connecting to SSID.
 &lt;/html&gt;' />
 					<value target='name3' data='page3.htm' />
 					<value target='html3' data='' />
@@ -1407,10 +1717,10 @@ Webpage Created by Flowcode Webserver.&lt;br /&gt;
 	<keymap />
 	<panel2d shadows='0' lighting='2' brightness='0' >
 		<background rgb='7292207' img='' style='0' />
-		<camera xe='0' ye='0' ze='48.9424' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
-		<viewport dx='449' dy='819' zoom='1110.06' fix_topleft='0' />
+		<camera xe='0' ye='0' ze='62.0228' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
+		<viewport dx='569' dy='396' zoom='1110.06' fix_topleft='0' />
 		<page x='1000' y='1000' show='0' rgb='7360576' />
-		<winpos ID='7005' RectRecentFloat='606,-902,1419,-154' RectRecentDocked='0,0,449,842' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
+		<winpos ID='7005' RectRecentFloat='606,-902,1419,-154' RectRecentDocked='0,0,569,419' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='0' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='0' />
 	</panel2d>
 	<panel3d shadows='0' lighting='2' brightness='0' perspective='1' >
 		<background rgb='8409120' img='' style='0' />
@@ -1427,19 +1737,20 @@ Webpage Created by Flowcode Webserver.&lt;br /&gt;
 	</panel3d>
 	<panels2d count='1' >
 		<panel2d_0 id='0' name='2D Panel' >
-			<winpos ID='1171' RectRecentFloat='1978,139,3150,821' RectRecentDocked='814,141,1263,983' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='1' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='1' />
+			<winpos ID='1171' RectRecentFloat='1843,-851,3015,-169' RectRecentDocked='934,141,1503,1013' RecentFrameAlignment='16384' RecentRowIndex='0' IsFloating='1' MRUWidth='32767' PinState='0' IsMaximized='0' IsVisible='1' />
 			<background fill='288230376151053813' showgrid='1' gridstyle='1' gridsize='10' gridbrush='71776119075691740' snaptogrid='1' />
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='TouchAreaRegister' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='TouchAreaClearAll' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='TouchAreaCheck' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='95' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='ConnectToWIFI' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAfgMAAEUDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='TouchAreaRegister' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='TouchAreaClearAll' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='TouchAreaCheck' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='95' scrollx='0' scrolly='4295' flags='0' />
+		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='ConnectToWIFI' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='UpdateDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 	</layout>
 </document>
 </root>
