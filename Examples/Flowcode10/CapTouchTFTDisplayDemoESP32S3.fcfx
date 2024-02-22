@@ -954,13 +954,13 @@
 							<array size='30' />
 						</local>
 						<local name='Val' type='u16' description='' isconst='0' isHidden='0' isinit='0' usrinit='0' setinit='' />
-						<command class_type='call' title='Set FG colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
-							<argument exp='0' />
-							<argument exp='0' />
-							<argument exp='0' />
-						</command>
 						<command class_type='decision' title='Clock Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 3' swap='0' >
 							<flowline >
+								<command class_type='call' title='Set FG colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
 								<command class_type='decision' title='Wifi Connected?' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='WifiStatus' swap='0' >
 									<flowline >
 										<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='RTC_ESP32_NTP1' macro='GetTimeString' >
@@ -999,6 +999,11 @@
 						</command>
 						<command class_type='decision' title='Timer Screen' cmdcolor='4767473' cmdcolor_sec='11337727' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' exp='DisplayMode = 5' swap='0' >
 							<flowline >
+								<command class_type='call' title='Set FG colour to Black' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='gLCD_ILI9488' macro='SetForegroundColour' >
+									<argument exp='0' />
+									<argument exp='0' />
+									<argument exp='0' />
+								</command>
 								<command class_type='call' title='Component Macro' cmdcolor='4487093' cmdcolor_sec='11066367' cmdcolor_txt='16777215' cmdgradient='4' cmdopacity='0.64' component='Timer1' macro='GetCountSeconds' >
 									<return exp='.val' />
 								</command>
@@ -1772,15 +1777,15 @@ Connecting to SSID.
 		</panel2d_0>
 	</panels2d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='699' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='INT_Pin' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaRegister' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaClearAll' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='TouchAreaCheck' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='95' scrollx='0' scrolly='4641' flags='0' />
-		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='861' flags='0' />
+		<view type='0' name='SetupDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='95' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='ProcessTouch' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
 		<view type='0' name='ConnectToWIFI' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='0' flags='0' />
-		<view type='0' name='UpdateDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='914' flags='0' />
+		<view type='0' name='UpdateDisplay' mode='0' placement='LAAAAAAAAAABAAAA---------------------wUAAAAYAAAAbgQAAGMDAAA' zoom='100' scrollx='0' scrolly='510' flags='0' />
 	</layout>
 </document>
 </root>
