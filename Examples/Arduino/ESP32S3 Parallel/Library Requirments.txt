@@ -1,0 +1,7 @@
+Library Requirement - TFT_eSPI - Modified from standard!!! Please use the packaged version
+Copy libraries\TFT_eSPI to Documents\Arduino\libraries\TFT_eSPI
+
+Library Requirement - FT6236 - https://github.com/DustinWatts/FT6236
+
+
+Copy included libraries to Documents\Arduino\libraries
